@@ -1,0 +1,56 @@
+.bars {
+  position: fixed;
+  top: 4.5rem;
+  left: 4rem;
+  font-size: 3rem;
+  transition: all 0.3s;
+}
+
+.bars:hover {
+  color: #fb4b29;
+  cursor: pointer;
+}
+
+.sidebar {
+  position: fixed;
+  top: 48rem;
+  left: -10rem;
+}
+
+.sidebar ul {
+  list-style: none;
+  transform: rotate(-90deg);
+  display: flex;
+  gap: 3.7rem;
+  transition: all 0.3;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 2rem;
+  transition: all 0.3s;
+}
+
+.sidebar ul li a:hover {
+  color: #fb4b29;
+}
+
+.social {
+  position: fixed;
+  top: 76rem;
+  left: 4rem;
+  font-size: 3rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.icon {
+  transition: all 0.3s;
+}
+
+.icon:hover {
+  color: #fb4b29;
+}

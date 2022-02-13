@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import SideBar from './components/SideBar';
+import Header from './components/Header';
+import ShoeShowcase from './components/ShoeShowcase';
+import Footer from './components/Footer';
+import Modal from './components/reusable/Modal';
+import styles from './App.module.css';
+
+import { CartProvider } from './context/CartContext.js';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={styles.App}>
+      <div className={styles.background}></div>
+      <SideBar></SideBar>
+      <Header></Header>
+      <ShoeShowcase></ShoeShowcase>
+      <CartProvider>
+        <Footer></Footer>
+      </CartProvider>
     </div>
   );
 }

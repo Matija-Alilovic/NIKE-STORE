@@ -1,0 +1,73 @@
+.container {
+  display: flex;
+  gap: 50px;
+  height: 70vh;
+}
+
+.leftContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 60rem;
+}
+
+.logo {
+  max-width: 5.5rem;
+}
+
+.boring {
+  font-size: 15rem;
+  font-weight: 900;
+  color: #ffd6ae;
+}
+
+.shoes {
+  font-size: 11.25rem;
+  color: #ffd6ae;
+}
+
+.help {
+  font-size: 3.15rem;
+}
+
+.btn {
+  margin-top: 4rem;
+  width: 20rem;
+  font-size: 1.5rem;
+}
+
+.rightContainer {
+  position: relative;
+}
+
+.shoeImg {
+  max-width: 140%;
+  margin-top: -2rem;
+  margin-left: -28rem;
+  z-index: -1;
+}
+
+.nikeBackground {
+  position: fixed;
+  top: 11rem;
+  left: 39rem;
+  z-index: -2;
+}
+
+@media (max-width: 1500px) {
+  .container {
+    display: flex;
+    gap: 0px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .shoeImg {
+    max-width: 100%;
+    margin-left: -10rem;
+  }
+
+  .nikeBackground {
+    display: none;
+  }
+}

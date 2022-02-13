@@ -1,0 +1,69 @@
+.container {
+  position: absolute;
+  right: 10rem;
+  bottom: 7rem;
+
+  display: flex;
+  align-items: center;
+  gap: 2.7rem;
+}
+
+.middle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.middle h2 {
+  font-style: italic;
+  font-size: 2.4rem;
+}
+
+.arrow {
+  font-size: 5rem;
+  transition: all 0.2s;
+}
+
+.arrow:hover {
+  color: #fb4b29;
+}
+
+.btn {
+  background-color: transparent;
+  color: #fb4b29;
+}
+
+.btn:hover {
+  background-color: #fb4b29;
+  color: white;
+}
+
+.star {
+  color: #ffc833;
+}
+
+.price {
+  color: #ffd6ae;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.starsPrice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+@media (max-width: 1500px) {
+  .container {
+    position: absolute;
+    right: 0rem;
+    bottom: 0rem;
+
+    display: flex;
+    align-items: center;
+    gap: 2.7rem;
+  }
+}
