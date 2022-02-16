@@ -1,15 +1,19 @@
 import React, { useState, useReducer, createContext } from 'react';
 
-import shoeImg from '../img/Nike air max main.png';
+import airMaxShoe from '../img/shoes/Nike air max main.png';
+import airMax90 from '../img/shoes/air-max-90-flyease.png';
+import airMax270 from '../img/shoes/air-max-270-react-se.png';
+import airZoom from '../img/shoes/air-zoom-pegasus-37.png';
+import airCosmic from '../img/shoes/cosmic-unity.png';
 
 const shoeInfo = [
   {
     id: 1,
-    name: 'AIR MAX 90 FLYEASE',
+    name: 'AIR COSMIC MAX',
     stars: 5,
     price: '$189',
     desc: "Men's Sneakers",
-    img: shoeImg,
+    img: airCosmic,
   },
   {
     id: 2,
@@ -17,31 +21,73 @@ const shoeInfo = [
     stars: 4,
     price: '$289',
     desc: "Women's running shoe",
-    img: shoeImg,
+    img: airMax90,
   },
-];
-
-const initialCartState = [
   {
-    id: 1,
-    name: 'AIR MAX 90 FLYEASE',
-    stars: 4,
+    id: 3,
+    name: 'AIR MAX 270',
+    stars: 5,
+    price: '$489',
+    desc: "Men's running shoe",
+    img: airMax270,
+  },
+  {
+    id: 4,
+    name: 'AIR ZOOM',
+    stars: 3,
     price: '$189',
-    desc: "Men's Sneakers",
+    desc: "Women's running shoe",
+    img: airZoom,
   },
 ];
 
-function reducer(state, action) {}
+const initialCartState = {
+  shoeInfo: shoeInfo,
+  items: [
+    {
+      id: 1,
+      name: 'AIR COSMIC MAX',
+      stars: 5,
+      price: '$189',
+      desc: "Men's Sneakers",
+      img: airCosmic,
+    },
+  ],
+  totalAmount: 0,
+};
+
+function reducer(state, action) {
+  if (action.type === 'ADD') {
+    const updatedItems = [...state.items, action.item];
+    console.log(updatedItems);
+    return { shoeInfo: shoeInfo, items: updatedItems, totalAmount: 0 };
+  }
+
+  return initialCartState;
+}
 
 export const CartContext = createContext();
 
 export const CartProvider = (props) => {
-  const [cartItems, dispatchCartItems] = useReducer(reducer, '');
+  const [cartState, dispatchCartAction] = useReducer(reducer, initialCartState);
 
-  function addItemToCart() {}
+  function addItemToCart(item) {
+    dispatchCartAction({ type: 'ADD', item });
+  }
+
+  function removeItemFromCart(id) {
+    dispatchCartAction({ type: 'REMOVE', id });
+  }
+  const cartContext = {
+    shoeInfo: cartState.shoeInfo,
+    items: cartState.items,
+    totalAmount: cartState.totalAmount,
+    addItem: addItemToCart,
+    removeItem: removeItemFromCart,
+  };
 
   return (
-    <CartContext.Provider value={[shoeInfo, cartItems]}>
+    <CartContext.Provider value={cartContext}>
       {props.children}
     </CartContext.Provider>
   );

@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 
 import cartIcon from '../img/Cart.png';
 import Modal from './reusable/Modal';
-
+import Cart from './Cart/Cart';
 import styles from './Header.module.css';
-
 import { SiNike } from 'react-icons/si';
+
+import { CartProvider } from '../context/CartContext';
 
 function Header(props) {
   const [cartIsShown, setCartIsShown] = useState(false);
@@ -40,6 +41,11 @@ function Header(props) {
           alt="Cart items"
         />
       </div>
+      {cartIsShown && (
+        <CartProvider>
+          <Cart toggleCart={toggleCart}></Cart>
+        </CartProvider>
+      )}
     </div>
   );
 }

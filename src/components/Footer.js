@@ -5,19 +5,16 @@ import Card from './reusable/Card';
 import { CartContext } from '../context/CartContext.js';
 
 function Footer(props) {
-  const [shoeInfo] = useContext(CartContext);
+  const cartContext = useContext(CartContext);
+
+  function onAddCartItemHandler(item) {
+    cartContext.addItem(item);
+  }
 
   return (
     <div className={styles.footer}>
-      {shoeInfo.map((card) => (
-        <Card
-          key={card.id}
-          name={card.name}
-          stars={card.stars}
-          price={card.price}
-          desc={card.desc}
-          img={card.img}
-        />
+      {cartContext.shoeInfo.map((card) => (
+        <Card key={card.id} card={card} addItemToCart={onAddCartItemHandler} />
       ))}
     </div>
   );

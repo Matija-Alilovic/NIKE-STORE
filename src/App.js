@@ -2,7 +2,7 @@ import SideBar from './components/SideBar';
 import Header from './components/Header';
 import ShoeShowcase from './components/ShoeShowcase';
 import Footer from './components/Footer';
-import Modal from './components/reusable/Modal';
+import Cart from './components/Cart/Cart';
 import styles from './App.module.css';
 
 import { CartProvider } from './context/CartContext.js';

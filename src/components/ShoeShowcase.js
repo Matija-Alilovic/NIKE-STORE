@@ -6,7 +6,7 @@ import ShoeSelector from './ShoeSelector.js';
 import styles from './ShoeShowcase.module.css';
 
 import miniNikeLogo from '../img/mini-nike-logo.png';
-import shoeImg from '../img/Nike air max main.png';
+import shoeImg from '../img/shoes/Nike air max main.png';
 import nikeBackground from '../img/nike-background.png';
 
 function ShoeShowcase(props) {

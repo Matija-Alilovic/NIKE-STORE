@@ -7,6 +7,14 @@
   display: flex;
   gap: 1rem;
   align-items: center;
+
+  transition: all 0.15s;
+}
+
+.card:hover {
+  width: 33rem;
+  height: 16.8rem;
+  transform: translateY(-1rem);
 }
 
 .left {
@@ -18,8 +26,8 @@
 
 .left img {
   position: relative;
-  left: -10rem;
-  bottom: -1rem;
+  left: -9rem;
+  bottom: 2rem;
   width: 200%;
 }
 

@@ -15,7 +15,6 @@ function Sidebar() {
       <a>
         <FaIcons.FaStream className={styles.bars} onClick={toggleSidebar} />
       </a>
-
       {isActive && (
         <div className={styles.sidebar}>
           <ul>
@@ -33,9 +32,20 @@ function Sidebar() {
       )}
 
       <div className={styles.social}>
-        <FaIcons.FaTwitter className={styles.icon}></FaIcons.FaTwitter>
-        <FaIcons.FaInstagram className={styles.icon}></FaIcons.FaInstagram>
+        <FaIcons.FaTwitter
+          onClick={() => window.open('https://twitter.com/nike', '_blank')}
+          className={styles.icon}
+        ></FaIcons.FaTwitter>
+        <FaIcons.FaInstagram
+          onClick={() =>
+            window.open('https://www.instagram.com/nike/', '_blank')
+          }
+          className={styles.icon}
+        ></FaIcons.FaInstagram>
         <FaIcons.FaFacebookSquare
+          onClick={() =>
+            window.open('https://www.facebook.com/nike/', '_blank')
+          }
           className={styles.icon}
         ></FaIcons.FaFacebookSquare>
       </div>

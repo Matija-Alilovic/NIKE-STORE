@@ -53,4 +53,5 @@
 
 .icon:hover {
   color: #fb4b29;
+  cursor: pointer;
 }
