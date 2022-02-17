@@ -43,24 +43,53 @@ const shoeInfo = [
 
 const initialCartState = {
   shoeInfo: shoeInfo,
-  items: [
-    {
-      id: 1,
-      name: 'AIR COSMIC MAX',
-      stars: 5,
-      price: '$189',
-      desc: "Men's Sneakers",
-      img: airCosmic,
-    },
-  ],
+  items: [],
   totalAmount: 0,
 };
 
 function reducer(state, action) {
-  if (action.type === 'ADD') {
-    const updatedItems = [...state.items, action.item];
-    console.log(updatedItems);
-    return { shoeInfo: shoeInfo, items: updatedItems, totalAmount: 0 };
+  switch (action.type) {
+    case 'ADD':
+      const updatedTotalAmount =
+        state.totalAmount + action.item.price * action.item.amount;
+
+      const existingCartItemIndex = state.items.findIndex(
+        (item) => item.id === action.item.id
+      );
+
+      const existingCartItem = state.items[existingCartItemIndex];
+
+      let updatedItem;
+      let updatedItems;
+
+      if (existingCartItem) {
+        updatedItem = {
+          ...existingCartItem,
+          amount: existingCartItem.amount + action.item.amount,
+        };
+        updatedItems = [...state.items];
+        updatedItems[existingCartItem] = updatedItem;
+      } else {
+        updatedItem = { ...action.item };
+        updatedItems = state.items.concat(updatedItem);
+      }
+
+      return {
+        shoeInfo: shoeInfo,
+        items: updatedItems,
+        totalAmount: updatedTotalAmount,
+      };
+
+    case 'REMOVE':
+      const index = state.items.findIndex((item) => item.id === action.id);
+
+      let newItems = state.items.filter((item) => item.id !== action.id);
+
+      return {
+        shoeInfo: shoeInfo,
+        items: newItems,
+        totalAmount: 0,
+      };
   }
 
   return initialCartState;

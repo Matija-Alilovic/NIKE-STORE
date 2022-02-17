@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
 import cartIcon from '../img/Cart.png';
-import Modal from './reusable/Modal';
 import Cart from './Cart/Cart';
 import styles from './Header.module.css';
 import { SiNike } from 'react-icons/si';
 
-import { CartProvider } from '../context/CartContext';
+import { CartContext } from '../context/CartContext';
 
 function Header(props) {
   const [cartIsShown, setCartIsShown] = useState(false);
+  const cartContext = useContext(CartContext);
 
   function toggleCart() {
     setCartIsShown(!cartIsShown);
@@ -33,7 +33,7 @@ function Header(props) {
         </li>
       </ul>
       <div className={styles.CartContainer}>
-        <span className={styles.cartNumber}>1</span>
+        <span className={styles.cartNumber}>{cartContext.items.length}</span>
         <img
           className={styles.CartButton}
           onClick={toggleCart}
@@ -41,11 +41,7 @@ function Header(props) {
           alt="Cart items"
         />
       </div>
-      {cartIsShown && (
-        <CartProvider>
-          <Cart toggleCart={toggleCart}></Cart>
-        </CartProvider>
-      )}
+      {cartIsShown && <Cart toggleCart={toggleCart}></Cart>}
     </div>
   );
 }

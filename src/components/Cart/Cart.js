@@ -10,7 +10,6 @@ import { FaAngleLeft } from 'react-icons/fa';
 
 function Cart(props) {
   const cartContext = useContext(CartContext);
-  console.log(cartContext.items);
   return (
     <Modal onClick={props.toggleCart}>
       <div className={styles.container}>

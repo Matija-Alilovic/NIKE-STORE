@@ -11,10 +11,10 @@ function App() {
   return (
     <div className={styles.App}>
       <div className={styles.background}></div>
-      <SideBar></SideBar>
-      <Header></Header>
-      <ShoeShowcase></ShoeShowcase>
       <CartProvider>
+        <SideBar></SideBar>
+        <Header></Header>
+        <ShoeShowcase></ShoeShowcase>
         <Footer></Footer>
       </CartProvider>
     </div>
